@@ -69,7 +69,6 @@ Tela “Meus serviços”
 Serviços solicitados
 Serviços em andamento
 Serviços concluídos
-Status de cada serviço
 Tela de acompanhamento do serviço
 
 Profissional escolhido
