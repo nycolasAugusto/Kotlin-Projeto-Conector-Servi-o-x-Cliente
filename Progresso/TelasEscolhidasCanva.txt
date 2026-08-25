@@ -1,0 +1,42 @@
+
+
+Tela 1
+
+Tela "Home"
+
+Ao abrir o aplicativo aparecerá esta tela -
+
+ela contera um menu de navegação em cima ou na lateral.
+
+e contera algumas propostas de Serviços a serem falta - (os quais o algoritimo entende que tem seu perfil e são "boas")
+
+
+Tela 2
+
+Tela "Descrição do Serviço"
+
+Ao clicar em algum serviço em sua tela home ou na aba de pesquisas de serviço - aparecerá uma tela com a descrição do serviço
+
+Como - requisitos - valores - algumas imagens - dados do contratante
+
+
+Tela 3
+
+Tela "Criar um Serviço"
+
+Formulário - no qual o requerente irá descrever sua proposta e colocar informações necessárias para qual.
+
+Tela 4
+
+Tela "Pesquisa de Serviço/prestador"
+
+Tela onde há um campo para procura de textos/palavras chaves - permitindo você pesquisar um prestador de serviço - filtrar tipos de serviço - serviçõs pelo valor , etc....
+
+
+Tela 5
+
+Tela "Serviço Relampago"
+
+Sera uma proposta relampago enviada por um requerente que esteja numa localizaçãon aproximada a você ou escolhida diretamente pelo requerente
+
+
