@@ -1,0 +1,89 @@
+Tela inicial / Home
+
+Categorias de serviços
+Serviços em destaque
+Serviços próximos
+Barra de pesquisa
+
+Tela de categorias
+
+Elétrica
+Hidráulica
+Limpeza
+Montagem
+Pintura
+Manutenção
+Outras categorias
+
+Tela de criar solicitação de serviço
+
+Tipo de serviço
+Descrição do problema
+Fotos
+Endereço
+Data e horário desejados
+Faixa de preço
+
+Tela de detalhes da solicitação
+
+Descrição completa
+Fotos
+Local
+Data/horário
+Valor oferecido
+Status da solicitação
+
+
+Tela de profissionais interessados
+
+Lista de profissionais que se candidataram
+
+Foto
+Nome
+Avaliação
+Número de serviços realizados
+Valor cobrado
+Botão para escolher profissional
+
+Tela de perfil do profissional
+
+Foto
+Nome
+Especialidades
+Avaliação
+Serviços realizados
+Comentários de clientes
+Preço médio
+
+Tela de busca de serviços
+
+Campo de pesquisa
+Filtros
+Distância
+Categoria
+Avaliação
+Faixa de preço
+Lista de serviços disponíveis
+Tela “Meus serviços”
+
+Serviços solicitados
+Serviços em andamento
+Serviços concluídos
+Status de cada serviço
+Tela de acompanhamento do serviço
+
+Profissional escolhido
+Status do atendimento
+Horário
+Endereço
+Informações do serviço
+Botões de contato/cancelamento
+
+Tela de avaliação e pagamento
+
+Valor final
+Resumo do serviço
+Forma de pagamento
+Avaliação com estrelas
+Comentário
+Botão para finalizar serviço
