@@ -18,26 +18,31 @@ import androidx.compose.ui.unit.sp
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun TelaBuscaServicos() {
+fun TelaBuscaServicos(voltarParaInicio: () -> Unit) {
     var searchText by remember { mutableStateOf("") }
 
     val categorias = listOf(
         "Limpeza", "Encanamento", "Elétrica",
-        "Pintura", "Jardinagem", "Mecânica"
+        "Pintura", "Jardinagem", "Mecânica",
     )
 
     Column(
         modifier = Modifier
             .fillMaxSize()
-            .background(Color(0xFFF5F5F5))
+            .background(Color(0xFFEAEAEA))
             .padding(16.dp)
     ) {
-        Text(
-            text = "Busca de Serviços",
-            fontSize = 24.sp,
-            fontWeight = FontWeight.Bold,
-            modifier = Modifier.padding(bottom = 16.dp)
-        )
+        Row(verticalAlignment = Alignment.CenterVertically) {
+            IconButton(onClick = voltarParaInicio) {
+                Text("←", fontSize = 24.sp)
+            }
+            Text(
+                text = "Busca de Serviços",
+                fontSize = 24.sp,
+                fontWeight = FontWeight.Bold
+            )
+        }
+        Spacer(modifier = Modifier.height(16.dp))
 
         OutlinedTextField(
             value = searchText,
@@ -47,10 +52,11 @@ fun TelaBuscaServicos() {
                 .padding(bottom = 24.dp),
             placeholder = { Text("O que você está procurando?") },
             shape = RoundedCornerShape(12.dp),
-            colors = TextFieldDefaults.outlinedTextFieldColors(
-                containerColor = Color.White,
-                unfocusedBorderColor = Color.LightGray,
-                focusedBorderColor = Color(0xFF5A4FCF)
+            colors = OutlinedTextFieldDefaults.colors(
+                focusedContainerColor = Color.White,
+                unfocusedContainerColor = Color.White,
+                focusedBorderColor = Color(0xFF5A4FCF),
+                unfocusedBorderColor = Color.Gray
             )
         )
 
@@ -75,7 +81,7 @@ fun CardCategoria(nome: String) {
             .fillMaxWidth(),
         shape = RoundedCornerShape(16.dp),
         colors = CardDefaults.cardColors(containerColor = Color.White),
-        elevation = CardDefaults.cardElevation(defaultElevation = 2.dp)
+        elevation = CardDefaults.cardElevation(defaultElevation = 6.dp)
     ) {
         Box(
             contentAlignment = Alignment.Center,
@@ -86,7 +92,7 @@ fun CardCategoria(nome: String) {
                 Box(
                     modifier = Modifier
                         .size(40.dp)
-                        .background(Color(0xFFE0E0FF), shape = RoundedCornerShape(8.dp))
+                        .background(Color(0xFF5A4FCF), shape = RoundedCornerShape(8.dp))
                 )
                 Spacer(modifier = Modifier.height(8.dp))
                 Text(
@@ -102,5 +108,5 @@ fun CardCategoria(nome: String) {
 @Preview(showBackground = true)
 @Composable
 fun PreviewTelaBusca() {
-    TelaBuscaServicos()
+    TelaBuscaServicos(voltarParaInicio = {})
 }

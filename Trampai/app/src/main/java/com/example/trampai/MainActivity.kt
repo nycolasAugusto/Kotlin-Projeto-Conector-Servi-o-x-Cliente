@@ -9,7 +9,7 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import com.example.trampai.ui.theme.TrampaiTheme
@@ -31,7 +31,7 @@ class MainActivity : ComponentActivity() {
                     Box(modifier = androidx.compose.ui.Modifier.padding(innerPadding)) {
 
                         var telaAtual by remember {
-                            mutableStateOf(2)
+                            mutableIntStateOf(1)
                         }
 
                         when (telaAtual) {
@@ -48,7 +48,14 @@ class MainActivity : ComponentActivity() {
                                     }
                             )
 
-                            2 -> TelaDois()
+                            2 -> TelaDois(
+                                    voltarParaInicio = {
+                                        telaAtual = 1
+                                    },
+                                    irParaRelampago = {
+                                        telaAtual = 5
+                                    }
+                            )
 
                             3 -> TelaTres(
                                     voltarParaInicio = {
@@ -56,7 +63,11 @@ class MainActivity : ComponentActivity() {
                                     }
                             )
 
-                            4 -> TelaBuscaServicos()
+                            4 -> TelaBuscaServicos(
+                                    voltarParaInicio = {
+                                        telaAtual = 1
+                                    }
+                            )
 
                             5 -> TelaServicoRelampago(
                                     voltarParaInicio = {
