@@ -38,12 +38,26 @@ class MainActivity : ComponentActivity() {
                             1 -> TelaUm(
                                     irParaProxima = {
                                         telaAtual = 2
+                                    },
+                                    irParaBusca = {
+                                        telaAtual = 4
+                                    },
+                                    irParaRelampago = {
+                                        telaAtual = 5
                                     }
                             )
 
                             2 -> TelaDois()
 
                             3 -> TelaTres(
+                                    voltarParaInicio = {
+                                        telaAtual = 1
+                                    }
+                            )
+
+                            4 -> TelaBuscaServicos()
+
+                            5 -> TelaServicoRelampago(
                                     voltarParaInicio = {
                                         telaAtual = 1
                                     }

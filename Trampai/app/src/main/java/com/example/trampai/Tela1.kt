@@ -1,6 +1,7 @@
 package com.example.trampai
 
 import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -26,7 +27,9 @@ import androidx.compose.ui.unit.sp
 
 @Composable
 fun TelaUm(
-    irParaProxima: () -> Unit
+    irParaProxima: () -> Unit,
+    irParaBusca: () -> Unit,
+    irParaRelampago: () -> Unit
 ) {
     Column(
         modifier = Modifier
@@ -171,11 +174,11 @@ fun TelaUm(
             horizontalArrangement = Arrangement.SpaceBetween,
             verticalAlignment = Alignment.CenterVertically
         ) {
-            ItemMenuInferior("🏠", "Início", Color(0xFF5A4FCF))
-            ItemMenuInferior("🔍", "Buscar", Color.Gray)
-            ItemMenuInferior("➕", "Criar", Color.Gray)
-            ItemMenuInferior("⚡", "Urgente", Color.Gray)
-            ItemMenuInferior("👤", "Perfil", Color.Gray)
+            ItemMenuInferior("🏠", "Início", Color(0xFF5A4FCF), {})
+            ItemMenuInferior("🔍", "Buscar", Color.Gray, irParaBusca)
+            ItemMenuInferior("➕", "Criar", Color.Gray, irParaProxima)
+            ItemMenuInferior("⚡", "Urgente", Color.Gray, irParaRelampago)
+            ItemMenuInferior("👤", "Perfil", Color.Gray, {})
         }
     }
 }
@@ -240,9 +243,13 @@ fun CardRecomendacao(titulo: String, preco: String, profissional: String, nota: 
 
 // COMPOSABLE 3: Itens da Barra de Navegação Inferior
 @Composable
-fun ItemMenuInferior(icone: String, texto: String, cor: Color) {
+fun ItemMenuInferior(icone: String, texto: String, cor: Color, aoClicar: () -> Unit) {
     Column(
-        horizontalAlignment = Alignment.CenterHorizontally
+        horizontalAlignment = Alignment.CenterHorizontally,
+        modifier = Modifier
+            .clip(RoundedCornerShape(8.dp))
+            .clickable { aoClicar() }
+            .padding(4.dp)
     ) {
         Text(text = icone, fontSize = 20.sp)
         Text(
