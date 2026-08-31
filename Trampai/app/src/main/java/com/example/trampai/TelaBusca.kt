@@ -47,10 +47,11 @@ fun TelaBuscaServicos() {
                 .padding(bottom = 24.dp),
             placeholder = { Text("O que você está procurando?") },
             shape = RoundedCornerShape(12.dp),
-            colors = TextFieldDefaults.outlinedTextFieldColors(
-                containerColor = Color.White,
-                unfocusedBorderColor = Color.LightGray,
-                focusedBorderColor = Color(0xFF5A4FCF)
+            colors = OutlinedTextFieldDefaults.colors(
+                focusedContainerColor = Color.White,
+                unfocusedContainerColor = Color.White,
+                focusedBorderColor = Color(0xFF5A4FCF),
+                unfocusedBorderColor = Color.LightGray
             )
         )
 
@@ -66,6 +67,7 @@ fun TelaBuscaServicos() {
         }
     }
 }
+
 
 @Composable
 fun CardCategoria(nome: String) {

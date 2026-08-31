@@ -42,6 +42,7 @@ class MainActivity : ComponentActivity() {
                                     },
                                     irParaBusca = {
                                         telaAtual = 4
+
                                     },
                                     irParaRelampago = {
                                         telaAtual = 5
