@@ -14,6 +14,7 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import com.example.trampai.ui.theme.TrampaiTheme
 
+
 class MainActivity : ComponentActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -30,7 +31,7 @@ class MainActivity : ComponentActivity() {
                     Box(modifier = androidx.compose.ui.Modifier.padding(innerPadding)) {
 
                         var telaAtual by remember {
-                            mutableStateOf(1)
+                            mutableStateOf(2)
                         }
 
                         when (telaAtual) {
