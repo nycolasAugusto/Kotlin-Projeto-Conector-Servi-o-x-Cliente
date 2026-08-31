@@ -19,10 +19,11 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 
-// Data class para representar cada categoria com seu respectivo ícone
+// Data class para representar cada categoria com seu respectivo ícone e cor
 data class Categoria(
     val nome: String,
-    val icone: ImageVector
+    val icone: ImageVector,
+    val cor: Color
 )
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -32,17 +33,17 @@ fun TelaBuscaServicos() {
 
     // Cores da paleta
     val primaryColor = Color(0xFF4F46E5)
-    val backgroundColor = Color(0xFFF9FAFB)
-    val textColor = Color(0xFF111827)
+    val backgroundColor = Color(0xFFF7F8FA)
+    val textColor = Color(0xFF1F2937)
 
-    // Lista de categorias com ícones específicos
+    // Lista de categorias com ícones e cores vibrantes específicas
     val categorias = listOf(
-        Categoria("Limpeza", Icons.Default.CleaningServices),
-        Categoria("Encanamento", Icons.Default.Plumbing),
-        Categoria("Elétrica", Icons.Default.ElectricalServices),
-        Categoria("Pintura", Icons.Default.Brush),
-        Categoria("Jardinagem", Icons.Default.Grass),
-        Categoria("Mecânica", Icons.Default.Engineering)
+        Categoria("Limpeza", Icons.Default.CleaningServices, Color(0xFF0EA5E9)),
+        Categoria("Encanamento", Icons.Default.Plumbing, Color(0xFF3B82F6)),
+        Categoria("Elétrica", Icons.Default.ElectricalServices, Color(0xFFEAB308)),
+        Categoria("Pintura", Icons.Default.Brush, Color(0xFFEC4899)),
+        Categoria("Jardinagem", Icons.Default.Grass, Color(0xFF10B981)),
+        Categoria("Mecânica", Icons.Default.Engineering, Color(0xFFF59E0B))
     )
 
     Column(
@@ -53,10 +54,10 @@ fun TelaBuscaServicos() {
     ) {
         Text(
             text = "Busca de Serviços",
-            fontSize = 24.sp,
-            fontWeight = FontWeight.Bold,
+            fontSize = 26.sp,
+            fontWeight = FontWeight.ExtraBold,
             color = textColor,
-            modifier = Modifier.padding(bottom = 16.dp)
+            modifier = Modifier.padding(bottom = 20.dp, top = 8.dp)
         )
 
         OutlinedTextField(
@@ -65,21 +66,21 @@ fun TelaBuscaServicos() {
             modifier = Modifier
                 .fillMaxWidth()
                 .padding(bottom = 24.dp),
-            placeholder = { Text("O que você está procurando?") },
+            placeholder = { Text("O que você está procurando?", color = Color.Gray) },
             leadingIcon = {
                 Icon(
                     imageVector = Icons.Default.Search,
                     contentDescription = null,
-                    tint = Color.Gray
+                    tint = primaryColor
                 )
             },
             singleLine = true,
-            shape = RoundedCornerShape(12.dp),
+            shape = RoundedCornerShape(16.dp),
             colors = OutlinedTextFieldDefaults.colors(
                 focusedContainerColor = Color.White,
                 unfocusedContainerColor = Color.White,
                 focusedBorderColor = primaryColor,
-                unfocusedBorderColor = Color(0xFFD1D5DB),
+                unfocusedBorderColor = Color(0xFFE5E7EB),
                 focusedTextColor = textColor,
                 unfocusedTextColor = textColor
             )
@@ -92,7 +93,7 @@ fun TelaBuscaServicos() {
             modifier = Modifier.fillMaxSize()
         ) {
             items(categorias) { categoria ->
-                CardCategoria(categoria, primaryColor)
+                CardCategoria(categoria)
             }
         }
     }
@@ -100,39 +101,40 @@ fun TelaBuscaServicos() {
 
 
 @Composable
-fun CardCategoria(categoria: Categoria, accentColor: Color) {
+fun CardCategoria(categoria: Categoria) {
     Card(
         modifier = Modifier
             .aspectRatio(1f)
             .fillMaxWidth(),
-        shape = RoundedCornerShape(16.dp),
+        shape = RoundedCornerShape(24.dp),
         colors = CardDefaults.cardColors(containerColor = Color.White),
-        elevation = CardDefaults.cardElevation(defaultElevation = 2.dp)
+        elevation = CardDefaults.cardElevation(defaultElevation = 0.dp),
+        border = androidx.compose.foundation.BorderStroke(1.dp, Color(0xFFF3F4F6))
     ) {
         Box(
             contentAlignment = Alignment.Center,
             modifier = Modifier.fillMaxSize()
         ) {
             Column(horizontalAlignment = Alignment.CenterHorizontally) {
-                // Container do ícone com cor de fundo suave
+                // Container do ícone com cor de fundo suave baseada na cor da categoria
                 Box(
                     contentAlignment = Alignment.Center,
                     modifier = Modifier
-                        .size(48.dp)
-                        .background(accentColor.copy(alpha = 0.1f), shape = RoundedCornerShape(12.dp))
+                        .size(60.dp)
+                        .background(categoria.cor.copy(alpha = 0.12f), shape = RoundedCornerShape(18.dp))
                 ) {
                     Icon(
                         imageVector = categoria.icone,
                         contentDescription = categoria.nome,
-                        tint = accentColor,
-                        modifier = Modifier.size(28.dp)
+                        tint = categoria.cor,
+                        modifier = Modifier.size(32.dp)
                     )
                 }
-                Spacer(modifier = Modifier.height(12.dp))
+                Spacer(modifier = Modifier.height(14.dp))
                 Text(
                     text = categoria.nome,
-                    fontWeight = FontWeight.SemiBold,
-                    fontSize = 14.sp,
+                    fontWeight = FontWeight.Bold,
+                    fontSize = 15.sp,
                     color = Color(0xFF374151)
                 )
             }
