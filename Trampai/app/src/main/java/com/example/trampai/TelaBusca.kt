@@ -19,7 +19,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 
-// Data class para representar cada categoria com seu respectivo ícone
+// Data class para representar cada categoria com seu respectivo ícone e cor
 data class Categoria(
     val nome: String,
     val icone: ImageVector,
