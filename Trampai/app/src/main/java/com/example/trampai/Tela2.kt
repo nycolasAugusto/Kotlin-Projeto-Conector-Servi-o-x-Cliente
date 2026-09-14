@@ -22,6 +22,8 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.compose.ui.tooling.preview.Preview
+import com.example.trampai.ui.theme.TrampaiTheme
 
 @Composable
 fun TelaDois() {
@@ -172,6 +174,14 @@ fun TelaDois() {
                 )
             }
         }
+    }
+}
+
+@Preview(showBackground = true)
+@Composable
+fun TelaDoisPreview() {
+    TrampaiTheme {
+        TelaDois()
     }
 }
 

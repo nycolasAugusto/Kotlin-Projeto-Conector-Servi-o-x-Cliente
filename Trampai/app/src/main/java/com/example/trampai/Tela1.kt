@@ -24,6 +24,8 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.compose.ui.tooling.preview.Preview
+import com.example.trampai.ui.theme.TrampaiTheme
 
 @Composable
 fun TelaUm(
@@ -257,6 +259,18 @@ fun ItemMenuInferior(icone: String, texto: String, cor: Color, aoClicar: () -> U
             fontSize = 12.sp,
             color = cor,
             fontWeight = if (cor != Color.Gray) FontWeight.Bold else FontWeight.Normal
+        )
+    }
+}
+
+@Preview(showBackground = true)
+@Composable
+fun PreviewTelaUm() {
+    TrampaiTheme {
+        TelaUm(
+            irParaProxima = {},
+            irParaBusca = {},
+            irParaRelampago = {}
         )
     }
 }
