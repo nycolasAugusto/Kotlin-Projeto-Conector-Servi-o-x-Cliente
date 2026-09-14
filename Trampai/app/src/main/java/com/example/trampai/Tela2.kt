@@ -2,6 +2,7 @@ package com.example.trampai
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -26,7 +27,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import com.example.trampai.ui.theme.TrampaiTheme
 
 @Composable
-fun TelaDois() {
+fun TelaDois(voltarParaInicio: () -> Unit, irParaRelampago: () -> Unit) {
     // Paleta de cores extraída da imagem
     val corFundo = Color(0xFFF5F5F5)
     val corDestaqueAmarelo = Color(0xFF5A4FCF)
@@ -66,7 +67,8 @@ fun TelaDois() {
                 Box(
                     modifier = Modifier
                         .size(36.dp)
-                        .background(corDestaqueAmarelo, RoundedCornerShape(12.dp)),
+                        .background(corDestaqueAmarelo, RoundedCornerShape(12.dp))
+                        .clickable { voltarParaInicio() },
                     contentAlignment = Alignment.Center
                 ) {
                     Text(
@@ -159,7 +161,7 @@ fun TelaDois() {
                 .padding(horizontal = 16.dp)
         ) {
             Button(
-                onClick = { /* Ação estática */ },
+                onClick = irParaRelampago,
                 modifier = Modifier
                     .fillMaxWidth()
                     .height(48.dp),
