@@ -6,7 +6,7 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 
 @Composable
-fun TelaTres(voltarParaInicio: () -> Unit) {
+fun TelaTres(voltarParaInicio: () -> Unit = {}) {
     Column {
         Text("Aqui é a Tela 3!")
         Button(onClick = voltarParaInicio) {

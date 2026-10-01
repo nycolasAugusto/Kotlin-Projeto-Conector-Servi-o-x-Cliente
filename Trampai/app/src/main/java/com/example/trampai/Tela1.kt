@@ -31,7 +31,9 @@ import com.example.trampai.ui.theme.TrampaiTheme
 fun TelaUm(
     irParaProxima: () -> Unit,
     irParaBusca: () -> Unit,
-    irParaRelampago: () -> Unit
+    irParaRelampago: () -> Unit,
+    irParaDetalhes: () -> Unit = {},
+    irParaPropostas: () -> Unit = {}
 ) {
     Column(
         modifier = Modifier
@@ -143,7 +145,8 @@ fun TelaUm(
                 Text(
                     text = "Ver Tudo",
                     fontSize = 14.sp,
-                    color = Color(0xFF5A4FCF)
+                    color = Color(0xFF5A4FCF),
+                    modifier = Modifier.clickable { irParaPropostas() }
                 )
             }
 
@@ -151,9 +154,10 @@ fun TelaUm(
             CardRecomendacao(
                 titulo = "Serviço de Limpeza Profunda...",
                 preco = "R$120/hr",
-                profissional = "Clara Mendes",
-                nota = "⭐ 4.9",
-                local = "📍 Copacabana, RJ (1,2 km de distância)"
+                profissional = "Juliana Costa",
+                nota = "⭐ 4.8",
+                local = "📍 São Paulo, SP",
+                aoClicar = irParaDetalhes
             )
 
             Box(modifier = Modifier.height(16.dp)) // Espaçador
@@ -163,7 +167,8 @@ fun TelaUm(
                 preco = "R$200/hr",
                 profissional = "Marcos Silva (Encanador)",
                 nota = "⭐ 4.8",
-                local = "📍 Botafogo, RJ (2,5 km de distância)"
+                local = "📍 Botafogo, RJ (2,5 km de distância)",
+                aoClicar = irParaDetalhes
             )
         }
 
@@ -187,12 +192,20 @@ fun TelaUm(
 
 // COMPOSABLE 2: Card de Serviço
 @Composable
-fun CardRecomendacao(titulo: String, preco: String, profissional: String, nota: String, local: String) {
+fun CardRecomendacao(
+    titulo: String,
+    preco: String,
+    profissional: String,
+    nota: String,
+    local: String,
+    aoClicar: () -> Unit = {}
+) {
     Column(
         modifier = Modifier
             .fillMaxWidth()
             .clip(RoundedCornerShape(12.dp))
             .background(Color.White)
+            .clickable { aoClicar() }
     ) {
         // Imagem simulada
         Box(

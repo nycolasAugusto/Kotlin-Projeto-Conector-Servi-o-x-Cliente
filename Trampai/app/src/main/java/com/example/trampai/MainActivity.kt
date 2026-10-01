@@ -42,10 +42,15 @@ class MainActivity : ComponentActivity() {
                                     },
                                     irParaBusca = {
                                         telaAtual = 4
-
                                     },
                                     irParaRelampago = {
                                         telaAtual = 5
+                                    },
+                                    irParaDetalhes = {
+                                        telaAtual = 3
+                                    },
+                                    irParaPropostas = {
+                                        telaAtual = 6
                                     }
                             )
 
@@ -58,7 +63,7 @@ class MainActivity : ComponentActivity() {
                                     }
                             )
 
-                            3 -> TelaTres(
+                            3 -> TelaDescricaoServico(
                                     voltarParaInicio = {
                                         telaAtual = 1
                                     }
@@ -73,6 +78,15 @@ class MainActivity : ComponentActivity() {
                             5 -> TelaServicoRelampago(
                                     voltarParaInicio = {
                                         telaAtual = 1
+                                    }
+                            )
+
+                            6 -> TelaPropostasServidores(
+                                    voltarParaInicio = {
+                                        telaAtual = 1
+                                    },
+                                    aoSelecionarProfissional = {
+                                        telaAtual = 3
                                     }
                             )
                         }

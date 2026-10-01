@@ -7,6 +7,7 @@ import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
 import androidx.compose.foundation.lazy.grid.items
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.automirrored.filled.ArrowBack
 import androidx.compose.material.icons.filled.*
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
@@ -28,7 +29,9 @@ data class Categoria(
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun TelaBuscaServicos() {
+fun TelaBuscaServicos(
+    voltarParaInicio: () -> Unit = {}
+) {
     var searchText by remember { mutableStateOf("") }
 
     // Cores da paleta
@@ -52,13 +55,24 @@ fun TelaBuscaServicos() {
             .background(backgroundColor)
             .padding(16.dp)
     ) {
-        Text(
-            text = "Busca de Serviços",
-            fontSize = 26.sp,
-            fontWeight = FontWeight.ExtraBold,
-            color = textColor,
+        Row(
+            verticalAlignment = Alignment.CenterVertically,
             modifier = Modifier.padding(bottom = 20.dp, top = 8.dp)
-        )
+        ) {
+            IconButton(onClick = voltarParaInicio) {
+                Icon(
+                    imageVector = Icons.AutoMirrored.Filled.ArrowBack,
+                    contentDescription = "Voltar",
+                    tint = textColor
+                )
+            }
+            Text(
+                text = "Busca de Serviços",
+                fontSize = 24.sp,
+                fontWeight = FontWeight.ExtraBold,
+                color = textColor
+            )
+        }
 
         OutlinedTextField(
             value = searchText,

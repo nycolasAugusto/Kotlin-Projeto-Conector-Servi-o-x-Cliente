@@ -27,7 +27,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import com.example.trampai.ui.theme.TrampaiTheme
 
 @Composable
-fun TelaDois(voltarParaInicio: () -> Unit, irParaRelampago: () -> Unit) {
+fun TelaDois(voltarParaInicio: () -> Unit = {}, irParaRelampago: () -> Unit = {}) {
     // Paleta de cores extraída da imagem
     val corFundo = Color(0xFFF5F5F5)
     val corDestaqueAmarelo = Color(0xFF5A4FCF)
